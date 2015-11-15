@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">expense_log</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="note_label">Note</string>
+    <string name="description_label">Description</string>
+    <string name="date_label">Date</string>
+    <string name="note_hint">Input expense note..</string>
+    <string name="description_hint">Input description..</string>
+    <string name="button_save">Save</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="title_activity_add_entry">addEntry</string>
+    <string name="action_add">Add</string>
+</resources>
