@@ -29,21 +29,24 @@ EditText expense_description;
         View.OnClickListener saveListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ExpenseLogEntryData data = new ExpenseLogEntryData(expense_note.getText().toString(),expense_description.getText().toString());
 
                 Intent returnIntent = new Intent();
+                //store two string variable into Intent by putExtra method
                 returnIntent.putExtra("expense_note", expense_note.getText().toString());
                 returnIntent.putExtra("expense_description", expense_description.getText().toString());
+                //send back result
                 setResult(Activity.RESULT_OK,returnIntent);
                 finish();
             }
         };
+        // cancel button event is finish() and go back to last activity
         View.OnClickListener cancelListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         };
+        //bind OnClickListener to two button
         save.setOnClickListener(saveListener);
         cancel.setOnClickListener(cancelListener);
     }

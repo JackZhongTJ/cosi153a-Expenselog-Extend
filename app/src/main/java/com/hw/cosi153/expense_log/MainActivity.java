@@ -21,20 +21,20 @@ public class MainActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //this listview is the root element
         mylistview = (ListView) findViewById(R.id.mylistView);
 
-        // dummy data
+        // dummy data to display at the first time
         ExpenseLogEntryData ex1 = new ExpenseLogEntryData("12.5$","Dinner");
         ExpenseLogEntryData ex2 = new ExpenseLogEntryData("8.5$","Beer");
         ExpenseLogEntryData ex3 = new ExpenseLogEntryData("23.6$","Gas");
 
-        // Add this object into the ArrayList myList
+        // Add dummy data into the ArrayList myList
         mylist.add(ex1);
         mylist.add(ex2);
         mylist.add(ex3);
         a = new Customer_ExpenseTracker(context, mylist);
-        // Create a new object for each list item
+        // Set a new adapter for the root listview
         mylistview.setAdapter(a);
 
     }
@@ -50,8 +50,11 @@ public class MainActivity extends Activity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            // when the case is action_settings
             case R.id.action_settings:
+            // click to start a new addEntry activity
                 Intent i = new Intent("com.hw.addEntry");
+            // startactivity for result
                 startActivityForResult(i,1);
                 return true;
             default:
@@ -62,14 +65,17 @@ public class MainActivity extends Activity{
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+    // get result from the addEntry activity, to get note and description user input
         if (requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
-
+                // get note and description to string
                 String note = data.getStringExtra("expense_note");
                 String description = data.getStringExtra("expense_description");
+                //create a new ExpenseLogEntryData object. Two String Arguments is note and description
                 ExpenseLogEntryData ex = new ExpenseLogEntryData(note,description);
+                // add this new created object to mylist
                 mylist.add(ex);
+                // notifty the arraylist that data has changed
                 a.notifyDataSetChanged();
             }
             if (resultCode == Activity.RESULT_CANCELED) {

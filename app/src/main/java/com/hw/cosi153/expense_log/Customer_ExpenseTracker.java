@@ -47,13 +47,12 @@ public class Customer_ExpenseTracker extends BaseAdapter {
             convertView = inflater.inflate(R.layout.expense_entry, parent, false);
             myViewHolder = new ViewHolder (convertView);
             convertView.setTag(myViewHolder);
-
         }
         else {
             myViewHolder = (ViewHolder) convertView.getTag();
         }
         ExpenseLogEntryData myExpenseLogEntryData = getItem(position);
-
+        //set three field using getDescription function defined in ExpenseLogEntryData class
         myViewHolder.description.setText(myExpenseLogEntryData.getDescription());
         myViewHolder.note.setText(myExpenseLogEntryData.getNote());
         myViewHolder.date.setText(myExpenseLogEntryData.getDate());
@@ -61,7 +60,7 @@ public class Customer_ExpenseTracker extends BaseAdapter {
     }
 
 
-
+    // create a new ViewHolder class to put three textview into one row
     private class ViewHolder{
         TextView note, description, date;
         public ViewHolder(View item){
