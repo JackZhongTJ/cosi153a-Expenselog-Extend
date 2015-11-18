@@ -18,7 +18,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:text="@string/note_label"
-                android:layout_width="250px"
+                android:layout_width="200px"
                 android:id="@+id/textView3" />
 
             <TextView
@@ -28,7 +28,7 @@
                 android:id="@+id/textView4" />
 
             <TextView
-                android:layout_width="250px"
+                android:layout_width="280px"
                 android:layout_height="wrap_content"
                 android:text="@string/date_label"
                 android:id="@+id/textView5" />

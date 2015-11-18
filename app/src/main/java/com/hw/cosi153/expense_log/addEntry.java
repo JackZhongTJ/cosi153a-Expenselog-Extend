@@ -2,7 +2,6 @@ package com.hw.cosi153.expense_log;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +18,7 @@ EditText expense_description;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.expense_add);
-
+        // find ID
         expense_note = (EditText)findViewById(R.id.note);
         expense_description = (EditText)findViewById(R.id.description);
 
